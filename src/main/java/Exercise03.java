@@ -1,12 +1,12 @@
 public class Exercise03 {
-        public String AnalyzeNumber(int qty) {
+        public String AnalyzeNumber(int number) {
             StringBuilder result=new StringBuilder();
-            for(int i = 2; i <= qty; i++){
-                while(qty % i == 0){
+            for(int i = 2; i <= number; i++){
+                while(number % i == 0){
                     result.append(i + " * ");
-                    qty /= i;
+                    number /= i;
                 }
-                    if(qty < i){
+                    if(number < i){
                         result.delete(result.length()-2,result.length());
                     }
             }

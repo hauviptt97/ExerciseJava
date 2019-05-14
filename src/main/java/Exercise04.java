@@ -1,19 +1,19 @@
 public class Exercise04 {
-    public String AnalyzeNumber(int qty) {
+    public String AnalyzeNumber(int number) {
         StringBuilder result=new StringBuilder();
         int count=0;
-        for(int i = 2; i <= qty; i++){
+        for(int i = 2; i <= number; i++){
             count=0;
-            while(qty % i == 0){
+            while(number % i == 0){
                 ++count;
-                qty /= i;
+                number /= i;
             }
             if(count!=0){
                 result.append(i);
                 if(count > 1){
                     result.append("^" + count);
                 }
-                if(qty > i){
+                if(number > i){
                     result.append(" * ");
                 }
             }

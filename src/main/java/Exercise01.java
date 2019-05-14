@@ -1,16 +1,16 @@
 public class Exercise01 {
-    public int findGCD(int qty1, int qty2) {
-        if (qty1 == 0 || qty2 == 0) {
-            return qty1 + qty2;
+    public int findGCD(int number1, int number2) {
+        if (number1 == 0 || number2 == 0) {
+            return number1 + number2;
         }
 
-        while (qty1 != qty2) {
-            if (qty1 > qty2)
-                qty1 -= qty2;
+        while (number1 != number2) {
+            if (number1 > number2)
+                number1 -= number2;
             else
-                qty2 -= qty1;
+                number2 -= number1;
         }
-        return qty1;
+        return number1;
     }
 
     public int findLCM(int qty1, int qty2) {
