@@ -1,9 +1,9 @@
 public class Exercise02 {
-    public int calTotal(int qty) {
+    public int calculateSumDigits(int number) {
         int result = 0;
-        while (qty > 0) {
-            result += (qty % 10);
-            qty /= 10;
+        while (number > 0) {
+            result += (number % 10);
+            number /= 10;
         }
         return result;
     }
