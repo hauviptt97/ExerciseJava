@@ -1,16 +1,21 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exercise05 {
     public String calculateFibonacy(int number) {
         String result = "1 1 ";
-        int sum;
+        int sum=0;
+        int[] arrNum = new int[]{1,1};
         while (true){
-            int temp1=Integer.valueOf(result.substring(result.length()-4,result.length()-2).trim());
-            int temp2=Integer.valueOf(result.substring(result.length()-2).trim());
-            sum = Integer.sum(temp1,temp2);
-            if(sum<number){
-            result+= sum + " ";
+            sum=arrNum[0]+arrNum[1];
+            if(sum<=number){
+                result+= sum + " ";
             }else{
                 break;
             }
+            arrNum[0]=arrNum[1];
+            arrNum[1]=sum;
         }
         return result.trim();
     }

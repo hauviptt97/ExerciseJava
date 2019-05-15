@@ -1,7 +1,11 @@
 public class Exercise01 {
     public int findGCD(int number1, int number2) {
-        if (number1 == 0 || number2 == 0) {
-            return number1 + number2;
+        if (number1 == 0&& number2 != 0) {
+            return number2 ;
+        }else if (number1 != 0&& number2 == 0) {
+            return number1 ;
+        }else if (number1 == 0&& number2 == 0){
+            return 0;
         }
 
         while (number1 != number2) {
