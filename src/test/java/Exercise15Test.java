@@ -20,5 +20,9 @@ public class Exercise15Test {
         assertEquals((new Exercise15()).getTriangle(2, 3, 2), "Kieu tam giac : tam giac can\n" +
                                                                                "Dien tich tam giac : 1.984313483298443\n" +
                                                                                "Chu vi tam giac : 7.0");
+        assertEquals((new Exercise15()).getTriangle(1, 4, 4), "Kieu tam giac : tam giac can\n" +
+                "Dien tich tam giac : 1.984313483298443\n" +
+                "Chu vi tam giac : 9.0");
+
     }
 }
