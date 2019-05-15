@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class Exsercise01Test {
+public class Exercise01Test {
 
     @Test
     public void test_findGCD(){
