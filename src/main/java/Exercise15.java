@@ -6,7 +6,7 @@ public class Exercise15 {
     }
 
     private String findTypeOfTriangle(double a, double b, double c) {
-        if (a == b && a == c) {
+        if (a == b && a == c && b == c) {
             return "tam giac deu";
         }
         if (a != b && a != c && b != c) {
