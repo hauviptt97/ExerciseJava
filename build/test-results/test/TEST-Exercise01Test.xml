@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Exercise01Test" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-05-15T02:55:41" hostname="Admin" time="0.016">
+  <properties/>
+  <testcase name="test_findGCD" classname="Exercise01Test" time="0.015"/>
+  <testcase name="test_findLCM" classname="Exercise01Test" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
