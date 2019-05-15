@@ -8,7 +8,7 @@ public class Exercise15 {
     public String findTypeOfTriangle(double a, double b, double c) {
         if (a == b && a == c) {
             return "tam giac deu";
-        } else if (a == b && a != c) {
+        } else if ((a == b && a != c)||(a==c&& a != b)) {
             return "tam giac can";
         } else if (Math.pow(c, 2) == (Math.pow(a, 2) + Math.pow(b, 2))) {
             return "tam giac vuong";
