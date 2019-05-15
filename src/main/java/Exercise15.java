@@ -1,20 +1,21 @@
 import java.util.Arrays;
 
 public class Exercise15 {
-    public boolean isTriangle(double a, double b, double c) {
-        return (a + b > c) ? true : false;
+    private boolean isTriangle(double a, double b, double c) {
+        return a + b > c;
     }
 
-    public String findTypeOfTriangle(double a, double b, double c) {
+    private String findTypeOfTriangle(double a, double b, double c) {
         if (a == b && a == c) {
             return "tam giac deu";
-        } else if (a == b || a==c ||b==c ) {
-            return "tam giac can";
-        } else if (Math.pow(c, 2) == (Math.pow(a, 2) + Math.pow(b, 2))) {
-            return "tam giac vuong";
-        } else {
+        }
+        if (a != b && a != c && b != c) {
+            if (Math.pow(c, 2) == (Math.pow(a, 2) + Math.pow(b, 2))) {
+                return "tam giac vuong";
+            }
             return "tam giac binh thuong";
         }
+        return "tam giac can";
     }
 
     public double getArea(double a, double b, double c) {
