@@ -1,20 +1,15 @@
 public class Exercise18 {
-    public String convertDecimalToBinary(int number) {
+    private String convertDecimalToBinary(int number) {
         return Integer.toBinaryString(number);
     }
 
-    public int convertBinaryToDecimal(String binaryString) {
-        int result = 0;
-        int index;
-        int number = Integer.valueOf(binaryString);
-        index = binaryString.length() - 1;
+    private int convertBinaryToDecimal(String binaryString) {
+        return Integer.parseInt(reverseString(binaryString), 2);
+    }
 
-        while (number > 0) {
-            result += (number % 10) * Math.pow(2, index);
-            number /= 10;
-            index--;
-        }
-        return result;
+    private String reverseString(String input) {
+        StringBuilder binaryStringReverse = new StringBuilder(input);
+        return binaryStringReverse.reverse().toString();
     }
 
     public int convertNumber(int number) {
