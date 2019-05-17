@@ -2,12 +2,14 @@ import java.util.Arrays;
 
 public class Exercise16 {
 
-    private double getEdgeByCoordinates(double x1, double y1, double x2, double y2) {
-        return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+    private double getDistance(double x1, double y1, double x2, double y2) {
+        double dx = x2 - x1;
+        double dy = y2 - y1;
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     private boolean isTriangle(double a, double b, double c) {
-        return a + b > c;
+        return (a + b > c) && a > 0 && b > 0 && c > 0;
     }
 
     private String findTypeOfTriangle(double a, double b, double c) {
@@ -26,22 +28,20 @@ public class Exercise16 {
     }
 
     private double getArea(double a, double b, double c) {
-        double HalfPerimeter = getPerimeter(a, b, c) / 2;
-        return Math.sqrt(HalfPerimeter * (HalfPerimeter - a) * (HalfPerimeter - b) * (HalfPerimeter - c));
+        double p = getPerimeter(a, b, c) / 2;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     private double getPerimeter(double a, double b, double c) {
         return a + b + c;
     }
 
-    public String getTriangle(double x1, double y1, double x2, double y2, double x3, double y3) {
-        double a = getEdgeByCoordinates(x1, y1, x2, y2);
-        double b = getEdgeByCoordinates(x1, y1, x3, y3);
-        double c = getEdgeByCoordinates(x2, y2, x3, y3);
+    public String getDescribleTriangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+        double a = getDistance(x1, y1, x2, y2);
+        double b = getDistance(x1, y1, x3, y3);
+        double c = getDistance(x2, y2, x3, y3);
         double[] edges = new double[]{a, b, c};
         Arrays.sort(edges);
-        System.out.println(Arrays.toString(edges));
-        System.out.println(edges[2] * edges[2] == (edges[1] * edges[1] + edges[0] * edges[0]));
         if (isTriangle(edges[0], edges[1], edges[2])) {
             return "Kieu tam giac : " + findTypeOfTriangle(edges[0], edges[1], edges[2]) + "\nDien tich tam giac : " + getArea(a, b, c) + "\nChu vi tam giac : " + getPerimeter(a, b, c);
         } else {
