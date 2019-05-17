@@ -60,22 +60,11 @@ public class DateUtils {
     }
 
     public static int getNumberOfDayInMonth(int month, int year) {
-        int[] monthsHave31Days = new int[]{1, 3, 5, 7, 8, 10, 12};
-        int[] monthsHave30Days = new int[]{4, 6, 9, 11};
+        int[] daysOfMonths = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        for (Integer element : monthsHave31Days) {
-            if (month == element) {
-                return 31;
-            }
-        }
+        int day = daysOfMonths[month-1];
 
-        for (Integer element : monthsHave30Days) {
-            if (month == element) {
-                return 30;
-            }
-        }
-
-        return isLeapYear(year) ? 29 : 28;
+        return (month == 2 && isLeapYear(year)) ? (day + 1) : day;
     }
 
     public static int getNumberOfDayInYear(int year) {
