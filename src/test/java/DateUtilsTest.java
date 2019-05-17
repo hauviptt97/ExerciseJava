@@ -44,11 +44,12 @@ public class DateUtilsTest {
         assertEquals(DateUtils.getNumberOfDayInMonth(7, 2019), 31);
         assertEquals(DateUtils.getNumberOfDayInMonth(8, 2019), 31);
         assertEquals(DateUtils.getNumberOfDayInMonth(10, 2019), 31);
-        assertEquals(DateUtils.getNumberOfDayInMonth(12, 2019), 28);
+        assertEquals(DateUtils.getNumberOfDayInMonth(12, 2019), 31);
         assertEquals(DateUtils.getNumberOfDayInMonth(4, 2019), 30);
         assertEquals(DateUtils.getNumberOfDayInMonth(6, 2019), 30);
         assertEquals(DateUtils.getNumberOfDayInMonth(9, 2019), 30);
         assertEquals(DateUtils.getNumberOfDayInMonth(11, 2019), 30);
+        assertEquals(DateUtils.getNumberOfDayInMonth(2, 2011), 28);
         assertEquals(DateUtils.getNumberOfDayInMonth(2, 2012), 29);
     }
 
