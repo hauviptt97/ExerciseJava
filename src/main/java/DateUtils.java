@@ -1,8 +1,6 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 public class DateUtils {
 
@@ -12,6 +10,21 @@ public class DateUtils {
 
     public static boolean isValidMonth(int month) {
         return month >= 1 && month <= 12;
+    }
+
+    private static int getDay(String input) {
+        String[] date = input.split("[/]");
+        return Integer.valueOf(date[0]);
+    }
+
+    private static int getMonth(String input) {
+        String[] date = input.split("[/]");
+        return Integer.valueOf(date[1]);
+    }
+
+    private static int getYear(String input) {
+        String[] date = input.split("[/]");
+        return Integer.valueOf(date[2]);
     }
 
     public static boolean isValidDay(int day, int numberOfDayInMonth) {
@@ -31,10 +44,9 @@ public class DateUtils {
     }
 
     public static boolean isValidDate(String input) {
-        String[] date = input.split("[/]");
-        int day = Integer.valueOf(date[0]);
-        int month = Integer.valueOf(date[1]);
-        int year = Integer.valueOf(date[2]);
+        int day = getDay(input);
+        int month = getMonth(input);
+        int year = getYear(input);
         if (isValidYear(year)) {
             if (isValidMonth(month)) {
                 return isValidDay(day, getNumberOfDayInMonth(month, year));
@@ -48,14 +60,19 @@ public class DateUtils {
     }
 
     public static int getNumberOfDayInMonth(int month, int year) {
-        List<Integer> monthsHave31Days = Arrays.asList(1, 3, 5, 7, 8, 10, 12);
-        List<Integer> monthsHave30Days = Arrays.asList(4, 6, 9, 11);
+        int[] monthsHave31Days = new int[]{1, 3, 5, 7, 8, 10, 12};
+        int[] monthsHave30Days = new int[]{4, 6, 9, 11};
 
-        if (monthsHave31Days.contains(month)) {
-            return 31;
+        for (Integer element : monthsHave31Days) {
+            if (month == element) {
+                return 31;
+            }
         }
-        if (monthsHave30Days.contains(month)) {
-            return 30;
+
+        for (Integer element : monthsHave30Days) {
+            if (month == element) {
+                return 30;
+            }
         }
 
         return isLeapYear(year) ? 29 : 28;
