@@ -1,6 +1,5 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -8,15 +7,15 @@ import java.util.List;
 public class DateUtils {
 
     public static boolean isValidYear(int year) {
-        return (year < 1900 || year > 3000) ? false : true;
+        return year >= 1900 && year <= 3000;
     }
 
     public static boolean isValidMonth(int month) {
-        return (month < 1 || month > 12) ? false : true;
+        return month >= 1 && month <= 12;
     }
 
     public static boolean isValidDay(int day, int numberOfDayInMonth) {
-        return (day < 1 || day > numberOfDayInMonth) ? false : true;
+        return day >= 1 && day <= numberOfDayInMonth;
     }
 
 
@@ -25,7 +24,7 @@ public class DateUtils {
         sdf.setLenient(false);
         try {
             result = sdf.parse(input);
-        } catch (ParseException e) {
+        } catch (ParseException ignored) {
 
         }
         return result;
@@ -38,32 +37,14 @@ public class DateUtils {
         int year = Integer.valueOf(date[2]);
         if (isValidYear(year)) {
             if (isValidMonth(month)) {
-                if (isValidDay(day, getNumberOfDayInMonth(month, year))) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
+                return isValidDay(day, getNumberOfDayInMonth(month, year));
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     public static boolean isLeapYear(int year) {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0)
-                    return true;
-                else
-                    return false;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+        return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
     }
 
     public static int getNumberOfDayInMonth(int month, int year) {
