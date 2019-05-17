@@ -7,20 +7,18 @@ public class Exercise20 {
         elementsOfFibonacci.add(1);
         elementsOfFibonacci.add(1);
 
-        int count = 0;
         int[] arrNum = new int[]{1, 1};
 
-        while (count < number) {
+        while (elementsOfFibonacci.size() < number) {
             int sum = arrNum[0] + arrNum[1];
             elementsOfFibonacci.add(sum);
             arrNum[0] = arrNum[1];
             arrNum[1] = sum;
-            count++;
         }
         return elementsOfFibonacci;
     }
 
     public int sumOfFibonacci(int number) {
-        return calculateFibonacci(number).stream().limit(number).mapToInt(Integer::intValue).sum();
+        return calculateFibonacci(number).stream().mapToInt(Integer::intValue).sum();
     }
 }
