@@ -3,19 +3,15 @@ import java.util.List;
 
 public class Exercise20 {
     private List<Integer> calculateFibonacci(int number) {
-        List<Integer> elementsOfFibonacci = new ArrayList<>();
-        elementsOfFibonacci.add(1);
-        elementsOfFibonacci.add(1);
-
-        int[] arrNum = new int[]{1, 1};
-
-        while (elementsOfFibonacci.size() < number) {
-            int sum = arrNum[0] + arrNum[1];
-            elementsOfFibonacci.add(sum);
-            arrNum[0] = arrNum[1];
-            arrNum[1] = sum;
+        List<Integer> elements = new ArrayList<>();
+        elements.add(1);
+        elements.add(1);
+        while (elements.size() < number) {
+            int a = elements.get(elements.size()-1);
+            int b = elements.get(elements.size()-2);
+            elements.add(a+b);
         }
-        return elementsOfFibonacci;
+        return elements;
     }
 
     public int sumOfFibonacci(int number) {
