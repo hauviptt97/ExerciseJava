@@ -12,6 +12,9 @@ public class Exercise16Test {
                 "Dien tich tam giac : 4.500000000000001\n" +
                 "Chu vi tam giac : 16.428004061035494");
         assertEquals((new Exercise16()).getDescribleTriangle(2, 3, 2, 8, 2, 1), "khong phai la tam giac");
+        assertEquals((new Exercise16()).getDescribleTriangle(0, 0, 0, 0, 2, 1), "khong phai la tam giac");
+        assertEquals((new Exercise16()).getDescribleTriangle(2, 3, 0, 0, 0, 0), "khong phai la tam giac");
+        assertEquals((new Exercise16()).getDescribleTriangle(0, 0, 1, 0, 0, 0), "khong phai la tam giac");
 
         assertEquals((new Exercise16()).getDescribleTriangle(0, 0, 0, 3, 6, 0), "Kieu tam giac : tam giac vuong\n" +
                 "Dien tich tam giac : 9.0\n" +
