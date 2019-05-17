@@ -1,6 +1,9 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class DateUtils {
 
@@ -64,34 +67,17 @@ public class DateUtils {
     }
 
     public static int getNumberOfDayInMonth(int month, int year) {
-        int num = 0;
-        switch (month) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                num = 31;
-                break;
+        List<Integer> monthsHave31Days = Arrays.asList(1, 3, 5, 7, 8, 10, 12);
+        List<Integer> monthsHave30Days = Arrays.asList(4, 6, 9, 11);
 
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                num = 30;
-                break;
-
-            case 2:
-                if (isLeapYear(year)) {
-                    num = 29;
-                } else {
-                    num = 28;
-                }
-                break;
+        if (monthsHave31Days.contains(month)) {
+            return 31;
         }
-        return num;
+        if (monthsHave30Days.contains(month)) {
+            return 30;
+        }
+
+        return isLeapYear(year) ? 29 : 28;
     }
 
     public static int getNumberOfDayInYear(int year) {
