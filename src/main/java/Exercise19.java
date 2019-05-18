@@ -13,7 +13,6 @@ public class Exercise19 {
     public int[] getLastLineInPascalTriangle(int number) {
         int[] result = new int[number];
         result[0] = 1;
-        result[1] = 1;
         for (int n = 0; n < number; n++) {
             for (int k = 1; k <= n; k++)
                 result[k] = C(k, n);
