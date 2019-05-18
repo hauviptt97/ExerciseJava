@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Exercise19 {
 
     private int calculateFactorial(int number) {
@@ -8,14 +10,15 @@ public class Exercise19 {
         return (calculateFactorial(n) / (calculateFactorial(k) * (calculateFactorial(n - k))));
     }
 
-    public int[] a(int number) {
-        int count = 0;
+    public int[] getLastLineInPascalTriangle(int number) {
         int[] result = new int[number];
-        for (int i = 0; i < number; i++) {
-            for (int j = number - 1; j >= 0; j--) {
-                result[count++] = C(j, i);
-            }
+        result[0] = 1;
+        result[1] = 1;
+        for (int n = 0; n < number; n++) {
+            for (int k = 1; k <= n; k++)
+                result[k] = C(k, n);
         }
         return result;
     }
+
 }
