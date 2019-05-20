@@ -2,16 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise24 {
-    public int amountOfFibonacciNumbers(int number) {
-        List<Integer> elements = new ArrayList<>();
-        elements.add(1);
-        elements.add(1);
-        while (elements.get(elements.size() - 1) <= number) {
-            int a = elements.get(elements.size() - 1);
-            int b = elements.get(elements.size() - 2);
-            elements.add(a + b);
+    public int countFibonacciNumbers(int n) {
+        int a1 = 0, a2 = 1, a3 = 1;
+        int count = 0;
+        while (a2 <= n) {
+            a1 = a2;
+            a2 = a3;
+            a3 = a1 + a2;
+            count++;
         }
-        return elements.size() - 1;
+        return count;
     }
 }
 
