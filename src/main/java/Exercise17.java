@@ -23,7 +23,7 @@ public class Exercise17 {
         return sum == a;
     }
 
-    public List<Integer> displayResult() {
+    public List<Integer> getValidNumbers() {
         List<Integer> result = new ArrayList();
         for (int number = 10; number < 100000; number++) {
             if (isValidNumber(number)) {
