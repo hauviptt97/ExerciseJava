@@ -38,6 +38,7 @@ public class DateUtilsTest {
 
     @Test
     public void test_getNumberOfDayInMonth() {
+        new DateUtils();
         assertEquals(DateUtils.getNumberOfDayInMonth(1, 2019), 31);
         assertEquals(DateUtils.getNumberOfDayInMonth(3, 2019), 31);
         assertEquals(DateUtils.getNumberOfDayInMonth(5, 2019), 31);
@@ -75,9 +76,9 @@ public class DateUtilsTest {
 
     @Test
     public void test_isValidDate() {
-        assertEquals(DateUtils.isValidDate("17/05/1888"), false);
-        assertEquals(DateUtils.isValidDate("17/14/2019"), false);
-        assertEquals(DateUtils.isValidDate("32/05/2019"), false);
-        assertEquals(DateUtils.isValidDate("17/05/2019"), true);
+        assertEquals(DateUtils.isValidDate("17/05/1888",new SimpleDateFormat("dd/MM/yyyy")), false);
+        assertEquals(DateUtils.isValidDate("17/14/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
+        assertEquals(DateUtils.isValidDate("32/05/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
+        assertEquals(DateUtils.isValidDate("17/05/2019",new SimpleDateFormat("dd/MM/yyyy")), true);
     }
 }

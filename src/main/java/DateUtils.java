@@ -12,17 +12,17 @@ public class DateUtils {
         return month >= 1 && month <= 12;
     }
 
-    private static int getDay(String input) {
+    public static int getDay(String input) {
         String[] date = input.split("[/]");
         return Integer.valueOf(date[0]);
     }
 
-    private static int getMonth(String input) {
+    public static int getMonth(String input) {
         String[] date = input.split("[/]");
         return Integer.valueOf(date[1]);
     }
 
-    private static int getYear(String input) {
+    public static int getYear(String input) {
         String[] date = input.split("[/]");
         return Integer.valueOf(date[2]);
     }
@@ -43,13 +43,15 @@ public class DateUtils {
         return result;
     }
 
-    public static boolean isValidDate(String input) {
-        int day = getDay(input);
-        int month = getMonth(input);
-        int year = getYear(input);
-        if (isValidYear(year)) {
-            if (isValidMonth(month)) {
-                return isValidDay(day, getNumberOfDayInMonth(month, year));
+    public static boolean isValidDate(String input, SimpleDateFormat sdf) {
+        if (convertStringToDate(input, sdf) != null) {
+            int day = getDay(input);
+            int month = getMonth(input);
+            int year = getYear(input);
+            if (isValidYear(year)) {
+                if (isValidMonth(month)) {
+                    return isValidDay(day, getNumberOfDayInMonth(month, year));
+                }
             }
         }
         return false;
@@ -62,7 +64,7 @@ public class DateUtils {
     public static int getNumberOfDayInMonth(int month, int year) {
         int[] daysOfMonths = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        int day = daysOfMonths[month-1];
+        int day = daysOfMonths[month - 1];
 
         return (month == 2 && isLeapYear(year)) ? (day + 1) : day;
     }
