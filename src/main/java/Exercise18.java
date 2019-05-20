@@ -1,36 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exercise18 {
-    private String convertDecimalToBinary(int number) {
-        String result = "";
+    private List convertDecimalToBinary(int number) {
+        List<Integer> digits = new ArrayList<>();
         while (number > 0) {
-            result = (number % 2 == 0) ? "0" + result : "1" + result;
+            digits.add((number % 2 == 0) ? 0 : 1);
             number /= 2;
         }
-        return result;
+        return digits;
     }
 
-    private int convertBinaryToDecimal(String binaryString) {
-        int power = 0;
+    private int convertBinaryToDecimal(List<Integer> binaryDigits) {
+        int power = binaryDigits.size() - 1;
         int result = 0;
-        int number = Integer.valueOf(binaryString);
-
-        while (number > 0) {
-            result += (number % 10) * Math.pow(2, power);
-            number /= 10;
-            power++;
+        for (int index = 0; index < binaryDigits.size(); index++) {
+            result += binaryDigits.get(index) * Math.pow(2, power);
+            power--;
         }
 
-        return result;
-    }
-
-    private String reverseString(String input) {
-        String result = "";
-        for (int i = input.length() - 1; i >= 0; i--) {
-            result += input.charAt(i);
-        }
         return result;
     }
 
     public int convertNumber(int number) {
-        return convertBinaryToDecimal(reverseString(convertDecimalToBinary(number)));
+        List<Integer> binaryDigits = convertDecimalToBinary(number);
+        return convertBinaryToDecimal(binaryDigits);
     }
 }
