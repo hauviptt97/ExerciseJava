@@ -34,7 +34,6 @@ public class DateUtils {
 
     public static Date convertStringToDate(String input, SimpleDateFormat sdf) {
         Date result = null;
-        sdf.setLenient(false);
         try {
             result = sdf.parse(input);
         } catch (ParseException ignored) {

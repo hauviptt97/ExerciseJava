@@ -80,5 +80,7 @@ public class DateUtilsTest {
         assertEquals(DateUtils.isValidDate("17/14/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
         assertEquals(DateUtils.isValidDate("32/05/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
         assertEquals(DateUtils.isValidDate("17/05/2019",new SimpleDateFormat("dd/MM/yyyy")), true);
+        assertEquals(DateUtils.isValidDate("32/12/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
+        assertEquals(DateUtils.isValidDate("12/2019",new SimpleDateFormat("dd/MM/yyyy")), false);
     }
 }
