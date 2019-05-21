@@ -1,26 +1,24 @@
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class Exercise19 {
 
-    private long calculateFactorial(int number) {
-        return (number == 0) ? 1 : (number * calculateFactorial(number - 1));
+    private BigInteger calculateFactorial(BigInteger number) {
+        return (number.equals(BigInteger.ZERO)) ? BigInteger.ONE : (number.multiply(calculateFactorial(number.subtract(BigInteger.ONE))));
     }
 
-    private long C(int k, int n) {
-        long x1= calculateFactorial(n);
-        long x2 = calculateFactorial(k);
-        long x3 = calculateFactorial(n - k);
-teFactorial(n) / (calculateFactorial(k) * (calculateFactorial(n - k))));
+    private BigInteger C(int k, int n) {
+        return calculateFactorial(new BigInteger(n + "")).divide((calculateFactorial(new BigInteger(k + "")).multiply(calculateFactorial(new BigInteger((n - k) + "")))));
     }
 
-    public long[] getLastLineInPascalTriangle(int number) {
-        long[] result = new long[number];
-        result[0] = 1;
+    public String getLastLineInPascalTriangle(int number) {
+        BigInteger[] result = new BigInteger[number];
+        result[0] = BigInteger.ONE;
         for (int n = 0; n < number; n++) {
-            for (int k = 1; k <= n; k++)
+            for (int k = 1; k <= n; k++) {
                 result[k] = C(k, n);
+            }
         }
-        return result;
+        return Arrays.toString(result);
     }
-
 }
