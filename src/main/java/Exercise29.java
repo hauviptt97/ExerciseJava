@@ -16,16 +16,23 @@ public class Exercise29 {
 
     public int getNumberByRomanLetter(String input) {
         int result = 0;
-        int lastValue = 0;
-        for (int i = 0; i < input.length(); i++) {
-            int currentValue = getRomanLetterValue(input.charAt(i));
-            if (currentValue > lastValue) {
-                result += (currentValue - 2 * lastValue);
-            } else {
-                result += currentValue;
+        if (isValidRomanNumber(input)) {
+            int lastValue = 0;
+            for (int i = 0; i < input.length(); i++) {
+                int currentValue = getRomanLetterValue(input.charAt(i));
+                if (currentValue > lastValue) {
+                    result += (currentValue - 2 * lastValue);
+                } else {
+                    result += currentValue;
+                }
+                lastValue = currentValue;
             }
-            lastValue = currentValue;
         }
         return result;
+    }
+
+    private static boolean isValidRomanNumber(String input) {
+        String regex = "(?=[MDCLXVI])M*(C[MD]|D?C*)(X[CL]|L?X*)(I[XV]|V?I*)";
+        return input.matches(regex);
     }
 }
