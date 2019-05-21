@@ -1,16 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Exercise20 {
     public int sumOfFibonacci(int n) {
-        int a1, a2 = 1, a3 = 1;
-        int sum = 2;
-        while (a2 <= n) {
-            a1 = a2;
-            a2 = a3;
-            a3 = a1 + a2;
-            sum += a1 + a2;
+        if (n <= 2 && n >= 0) {
+            return n;
+        } else {
+            int a1 = 1, a2 = 1;
+            int sum = 2;
+            for (int count = 2; count < n; count++) {
+                int temp = a1;
+                a1 = a2;
+                a2 = temp + a1;
+                sum += a2;
+            }
+            return sum;
         }
-        return sum;
     }
 }
