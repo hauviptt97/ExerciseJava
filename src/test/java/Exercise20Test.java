@@ -10,5 +10,7 @@ public class Exercise20Test {
         assertEquals(new Exercise20().sumOfFibonacci(2), 2);
         assertEquals(new Exercise20().sumOfFibonacci(3), 4);
         assertEquals(new Exercise20().sumOfFibonacci(0), 0);
+        assertEquals(new Exercise20().sumOfFibonacci(-2), 0);
+
     }
 }
