@@ -8,6 +8,8 @@ public class Exercise29Test {
         assertEquals(new Exercise29().getNumberByRomanLetter("DCLXXX"), 680);
         assertEquals(new Exercise29().getNumberByRomanLetter("DCXXXV"), 635);
         assertEquals(new Exercise29().getNumberByRomanLetter("LXXXIX"), 89);
-        assertEquals(new Exercise29().getNumberByRomanLetter("LXXXXXIX"), 0);
+        assertEquals(new Exercise29().getNumberByRomanLetter("CLCXXXIX"), 0);
+        assertEquals(new Exercise29().getNumberByRomanLetter("XXMXIX"), 0);
+        assertEquals(new Exercise29().getNumberByRomanLetter("XXXIC"), 0);
     }
 }
