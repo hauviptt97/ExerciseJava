@@ -1,6 +1,6 @@
 public class Exercise20 {
     public int sumOfFibonacci(int n) {
-        if (n <= 2 && n >= 0) {
+        if (n < 2 && n >= 0) {
             return n;
         } else {
             int a1 = 1, a2 = 1;
