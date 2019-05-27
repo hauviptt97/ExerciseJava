@@ -10,7 +10,7 @@ public class Exercise13 {
         double realE = Math.E;
         while (true) {
             double epsilon = realE - estimateE;
-            if (epsilon <= 0.00001 && epsilon >= 0) {
+            if (epsilon <= 0.00001) {
                 break;
             }
             estimateE += 1 / calculateFactorial(k);
