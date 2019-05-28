@@ -1,6 +1,11 @@
 public class Exercise30 {
 
-    private String romanDigit(int n, String one, String five, String ten) {
+    private String romanDigit(int n, String[] letters) {
+
+        String one = letters[0];
+        String five = letters[1];
+        String ten = letters[2];
+
         switch (n) {
             case 1:
                 return one;
@@ -31,16 +36,22 @@ public class Exercise30 {
             return "Invalid Number";
         }
 
-        String romanOnes = romanDigit(number % 10, "I", "V", "X");
+        String[] unitsCharacters = new String[]{"I", "V", "X"};
+        String[] tensCharacters = new String[]{"X", "L", "C"};
+        String[] hundredsCharacters = new String[]{"C", "D", "M"};
+        String[] thousandsCharacters = new String[]{"M", "", ""};
+
+
+        String romanOnes = romanDigit(number % 10, unitsCharacters);
         number /= 10;
 
-        String romanTens = romanDigit(number % 10, "X", "L", "C");
+        String romanTens = romanDigit(number % 10, tensCharacters);
         number /= 10;
 
-        String romanHundreds = romanDigit(number % 10, "C", "D", "M");
+        String romanHundreds = romanDigit(number % 10, hundredsCharacters);
         number /= 10;
 
-        String romanThousands = romanDigit(number % 10, "M", "", "");
+        String romanThousands = romanDigit(number % 10, thousandsCharacters);
 
         String result = romanThousands + romanHundreds + romanTens + romanOnes;
         return result;
