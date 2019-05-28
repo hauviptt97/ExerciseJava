@@ -1,21 +1,16 @@
 public class Exercise13 {
 
-    private double calculateFactorial(int number) {
-        return number == 0 ? 1 : number * calculateFactorial(number - 1);
-    }
-
     public double calculateE() {
-        int k = 0;
-        double estimateE = 0.0;
-        double realE = Math.E;
-        while (true) {
-            double epsilon = realE - estimateE;
-            if (epsilon <= 0.00001) {
-                break;
-            }
-            estimateE += 1 / calculateFactorial(k);
+        int k = 1;
+        double currentValue = 1;
+        double previousValue = 0;
+        double epsilon = 0.00001;
+        while (Math.abs(currentValue - previousValue) > epsilon) {
+            previousValue = currentValue;
+            currentValue += previousValue / k;
+            System.out.println(currentValue);
             k++;
         }
-        return estimateE;
+        return currentValue;
     }
 }
