@@ -1,17 +1,15 @@
 public class Exercise09 {
 
     public double calculatePi() {
-        int k = 0;
-        double estimatePI = 0.0;
-        double realPI = Math.PI;
-        while (true) {
-            double epsilon = realPI - estimatePI;
-            if (epsilon <= 0.0001 && epsilon >= 0) {
-                break;
-            }
-            estimatePI += 4 * (Math.pow(-1, k) / (2 * k + 1));
+        int k = 1;
+        double currentValue = 4;
+        double previousValue = 0;
+        double epsilon = 0.0001;
+        while (Math.abs(currentValue - previousValue) > epsilon) {
+            previousValue = currentValue;
+            currentValue += 4f * (1 - (k & 1) * 2) / (2 * k + 1);
             k++;
         }
-        return estimatePI;
+        return currentValue;
     }
 }
