@@ -12,5 +12,7 @@ public class Exercise30Test {
         assertEquals(new Exercise30().convertDecimalToRoman(0), "Invalid Number");
         assertEquals(new Exercise30().convertDecimalToRoman(4000), "Invalid Number");
         assertEquals(new Exercise30().convertDecimalToRoman(3999), "MMMCMXCIX");
+        assertEquals(new Exercise30().convertDecimalToRoman(20), "XX");
+        assertEquals(new Exercise30().convertDecimalToRoman(27), "XXVII");
     }
 }
